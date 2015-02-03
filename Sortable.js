@@ -542,6 +542,10 @@
 						after = (nextSibling !== dragEl) && !isLong || halfway && isLong;
 					}
 
+					if(this.options.allowDrop && !this.options.allowDrop(after, nextSibling)) {
+						return;
+					}
+
 					if (after && !nextSibling) {
 						el.appendChild(dragEl);
 					} else {

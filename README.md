@@ -199,6 +199,22 @@ Sortable.create(list, {
 ---
 
 
+#### `allowDrop` option
+A function which determines whether the 'drop target' or position is allowed.
+If the function returns false, the ghost element will not be moved.
+
+```js
+Sortable.create(list, {
+	allowDrop: function(after, nextSibling) {
+		return !nextSibling.previousSibling.className.match(/do-not-allow-drop-before-me/);
+	}
+})
+```
+
+
+---
+
+
 #### `ghostClass` option
 Class name for the drop placeholder.
 
